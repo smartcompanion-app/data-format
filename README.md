@@ -2,6 +2,13 @@
 
 This repository holds a specification of the data format for SmartCompanion apps. In addition examples are provided to demonstrate app features.
 
+## Examples
+
+### Animals
+
+ - AI-generated multilanguage tour of animal stations
+ - German language audiotour through the town "Bruck an der Großglocknerstraße" © by Leon Schwaiger
+
 ## Specification
 
 ### Station
@@ -154,11 +161,3 @@ By including tours with designated stations in the audio guide, visitors would r
 ### Server
 
 An array of strings of IP addresses to identify servers to download data within a internal Wifi instead of the internet. This would enhance the download speed of visitors and reduce the outbound internet traffic.
-
-## Examples
-
-### Animals
-
-Multilanguage tour of animal stations
-
-
