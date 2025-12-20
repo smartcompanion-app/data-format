@@ -4,8 +4,6 @@ This repository holds a specification of the data format for SmartCompanion apps
 
 ## Examples
 
-### Animals
-
  - AI-generated multilanguage tour of animal stations
  - German language audiotour through the town "Bruck an der Großglocknerstraße" © by Leon Schwaiger
 
