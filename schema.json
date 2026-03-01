@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartcompanion-app.github.io/data-format/data.schema.json",
+  "title": "SmartCompanion Audioguide Data",
+  "description": "Schema for the data.json file used by the SmartCompanion Audioguide App. This file defines all content for an audioguide: assets (images and audio files), stations (points of interest), languages (available translations), texts (UI translations), and optionally tours, pins, and server configuration.",
+  "type": "object",
+  "required": ["checksum", "assets", "stations", "languages", "texts"],
+  "properties": {
+    "checksum": {
+      "type": "string",
+      "description": "An arbitrary checksum string used to detect data changes and trigger cache invalidation. Update this value whenever the data changes."
+    },
+    "assets": {
+      "type": "array",
+      "description": "List of all media assets (images, audio files, videos) referenced by stations and tours. Each asset must have a unique id.",
+      "items": {
+        "$ref": "#/$defs/Asset"
+      },
+      "minItems": 1
+    },
+    "stations": {
+      "type": "array",
+      "description": "List of audioguide stations (points of interest). For multilingual projects, each station is repeated per language — sharing the same 'id' and 'number' but with different 'language', 'title', 'subtitle', 'description', and 'audios' values. Images are typically shared across languages.",
+      "items": {
+        "$ref": "#/$defs/Station"
+      },
+      "minItems": 1
+    },
+    "languages": {
+      "type": "array",
+      "description": "List of available languages for the audioguide. The first language in the list is used as the default.",
+      "items": {
+        "$ref": "#/$defs/Language"
+      },
+      "minItems": 1
+    },
+    "texts": {
+      "type": "array",
+      "description": "UI translation strings for the app interface. Each text entry is a key-value pair scoped to a specific language. All keys should be provided for every language listed in the 'languages' array.",
+      "items": {
+        "$ref": "#/$defs/Text"
+      },
+      "minItems": 1
+    },
+    "tours": {
+      "type": "array",
+      "description": "Optional list of guided tours. Tours group stations into a specific order to give visitors a structured, guided experience. For multilingual projects, each tour is repeated per language — sharing the same 'id' but with different 'language', 'title', and 'description' values.",
+      "items": {
+        "$ref": "#/$defs/Tour"
+      }
+    },
+    "pins": {
+      "type": "array",
+      "description": "Optional array of four-digit PIN codes. Provides a simple access control mechanism — e.g. a PIN issued upon payment. If present, visitors must enter a valid PIN to access the audioguide.",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9]{4}$",
+        "description": "A four-digit PIN code."
+      }
+    },
+    "server": {
+      "type": "array",
+      "description": "Optional array of IP addresses identifying local servers for downloading data within an internal WiFi network. Enhances download speed for visitors and reduces outbound internet traffic.",
+      "items": {
+        "type": "string",
+        "description": "An IP address of a local server."
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Asset": {
+      "type": "object",
+      "description": "A media asset (image, audio file, video, or other downloadable resource). Image assets are typically language-independent. Audio/video assets include a 'language' field to associate them with a specific language.",
+      "required": ["id", "filename", "externalUrl"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this asset. Referenced by stations in their 'images' and 'audios' arrays, and by tours in their 'images' array. Convention: image IDs use prefix 'i' (e.g. 'i11'), audio IDs use prefix 'a' followed by station number and language code (e.g. 'a1de', 'a2en')."
+        },
+        "language": {
+          "type": "string",
+          "description": "ISO 639-1 language code (e.g. 'de', 'en', 'es'). Used for audio/video assets to associate them with a language. Omitted for image assets since images are typically shared across languages.",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "title": {
+          "type": "string",
+          "description": "Optional title of the asset, e.g. the title of an audio track."
+        },
+        "duration": {
+          "type": "number",
+          "description": "Optional duration in seconds of an audio or video asset.",
+          "minimum": 0
+        },
+        "filename": {
+          "type": "string",
+          "description": "The filename of the asset including extension, without a path. Images are typically .png or .jpg, audio files are typically .mp3."
+        },
+        "externalUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The full URL where this asset is hosted and can be downloaded from."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Station": {
+      "type": "object",
+      "description": "An audioguide station representing a specific point of interest within a tour or guide. In multilingual projects, each logical station appears multiple times — once per language — sharing the same 'id' and 'number' but with language-specific content. Images are typically shared across all language variants of a station.",
+      "required": ["id", "language", "number", "title", "images"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this station, shared across language variants of the same station (e.g. 's1' for station 1 in all languages)."
+        },
+        "language": {
+          "type": "string",
+          "description": "ISO 639-1 language code indicating which language this station variant is in.",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title/name of the station in the specified language."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "An optional subtitle for the station in the specified language."
+        },
+        "number": {
+          "type": "string",
+          "description": "Display number for the station (e.g. '1', '2', '3'). Used for identification of a station by visitors."
+        },
+        "description": {
+          "type": "string",
+          "description": "An optional textual description of the station in the specified language."
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Optional latitude coordinate of the station, used to display the station on a map.",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Optional longitude coordinate of the station, used to display the station on a map.",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "images": {
+          "type": "array",
+          "description": "Array of asset IDs referencing image files for this station. IDs must match entries in the top-level 'assets' array. Images are typically shared across language variants.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "audios": {
+          "type": "array",
+          "description": "Optional array of asset IDs referencing audio files for this station. IDs must match entries in the top-level 'assets' array.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Language": {
+      "type": "object",
+      "description": "A language available in the audioguide. Displayed in the language selection screen.",
+      "required": ["title", "language"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The display name of the language, written in that language itself (e.g. 'Deutsch', 'English', 'Español', 'Italiano')."
+        },
+        "language": {
+          "type": "string",
+          "description": "ISO 639-1 language code (e.g. 'de', 'en', 'es', 'it').",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Text": {
+      "type": "object",
+      "description": "A UI translation string. The app uses keys to look up interface text in the selected language. Keys are arbitrary strings — standard keys include 'menu-overview', 'menu-selection', 'menu-language', 'no-internet', 'try-again', 'enter-pin', 'pin-error', but custom keys can be added as needed.",
+      "required": ["language", "key", "value"],
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "ISO 639-1 language code this translation belongs to.",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "key": {
+          "type": "string",
+          "description": "The translation key identifier used inside the app. Standard keys include: 'menu-overview', 'menu-selection', 'menu-language', 'no-internet', 'try-again', 'enter-pin', 'pin-error'. Custom keys can be added as needed for project-specific UI text."
+        },
+        "value": {
+          "type": "string",
+          "description": "The translated text for this key in the specified language."
+        }
+      },
+      "additionalProperties": false
+    },
+    "Tour": {
+      "type": "object",
+      "description": "A guided tour that groups stations into a specific order to provide visitors with a structured, informative experience. In multilingual projects, each tour is repeated per language — sharing the same 'id' but with language-specific 'title' and 'description' values.",
+      "required": ["id", "title", "language", "default", "stations", "images"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this tour, shared across language variants (e.g. 'tour1')."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the tour in the specified language."
+        },
+        "language": {
+          "type": "string",
+          "description": "ISO 639-1 language code indicating which language this tour variant is in.",
+          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+        },
+        "default": {
+          "type": "boolean",
+          "description": "Whether this tour is the default tour. Exactly one tour should be marked as default."
+        },
+        "number": {
+          "type": "string",
+          "description": "Optional tour number as an identifier for visitors."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the tour in the specified language."
+        },
+        "stations": {
+          "type": "array",
+          "description": "An ordered array of station numbers (as strings) listing all stations in this tour in the intended visiting order.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "images": {
+          "type": "array",
+          "description": "Array of asset IDs referencing images for this tour. IDs must match entries in the top-level 'assets' array.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
