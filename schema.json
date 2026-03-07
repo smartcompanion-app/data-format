@@ -76,12 +76,12 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for this asset. Referenced by stations in their 'images' and 'audios' arrays, and by tours in their 'images' array. Convention: image IDs use prefix 'i' (e.g. 'i11'), audio IDs use prefix 'a' followed by station number and language code (e.g. 'a1de', 'a2en')."
+          "description": "Unique identifier for this asset. Referenced by stations in their 'images' and 'audios' arrays, and by tours in their 'images' array."
         },
         "language": {
           "type": "string",
-          "description": "ISO 639-1 language code (e.g. 'de', 'en', 'es'). Used for audio/video assets to associate them with a language. Omitted for image assets since images are typically shared across languages.",
-          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          "description": "Language code (e.g. 'de', 'en', 'es'). Used for audio/video assets to associate them with a language. Omitted for image assets since images are typically shared across languages.",
+          "pattern": "^[a-z]{2,3}$"
         },
         "title": {
           "type": "string",
@@ -115,8 +115,8 @@
         },
         "language": {
           "type": "string",
-          "description": "ISO 639-1 language code indicating which language this station variant is in.",
-          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          "description": "Language code (e.g. 'de', 'en', 'es'). Indicates which language this station variant is in.",
+          "pattern": "^[a-z]{2,3}$"
         },
         "title": {
           "type": "string",
@@ -175,25 +175,25 @@
         },
         "language": {
           "type": "string",
-          "description": "ISO 639-1 language code (e.g. 'de', 'en', 'es', 'it').",
-          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          "description": "Language code (e.g. 'de', 'en', 'es', 'it').",
+          "pattern": "^[a-z]{2,3}$"
         }
       },
       "additionalProperties": false
     },
     "Text": {
       "type": "object",
-      "description": "A UI translation string. The app uses keys to look up interface text in the selected language. Keys are arbitrary strings — standard keys include 'menu-overview', 'menu-selection', 'menu-language', 'no-internet', 'try-again', 'enter-pin', 'pin-error', but custom keys can be added as needed.",
+      "description": "A UI translation string. The app uses keys to look up interface text in the selected language. Keys are arbitrary strings, e.g. 'menu-overview', 'menu-selection', 'menu-language', 'no-internet', 'try-again', 'enter-pin', 'pin-error'.",
       "required": ["language", "key", "value"],
       "properties": {
         "language": {
           "type": "string",
-          "description": "ISO 639-1 language code this translation belongs to.",
-          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          "description": "Language code (e.g. 'de', 'en', 'es', 'it'). Indicates which language this translation belongs to.",
+          "pattern": "^[a-z]{2,3}$"
         },
         "key": {
           "type": "string",
-          "description": "The translation key identifier used inside the app. Standard keys include: 'menu-overview', 'menu-selection', 'menu-language', 'no-internet', 'try-again', 'enter-pin', 'pin-error'. Custom keys can be added as needed for project-specific UI text."
+          "description": "The translation key identifier used inside the app."
         },
         "value": {
           "type": "string",
@@ -217,8 +217,8 @@
         },
         "language": {
           "type": "string",
-          "description": "ISO 639-1 language code indicating which language this tour variant is in.",
-          "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          "description": "Language code indicating which language this tour variant is in.",
+          "pattern": "^[a-z]{2,3}$"
         },
         "default": {
           "type": "boolean",
