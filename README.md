@@ -14,3 +14,4 @@ A human-readable documentation of the JSON Schema can be found [here](https://sm
 ## Inspiration
 
  - [XMLGuide](https://dl.acm.org/doi/abs/10.1145/1967486.1967549)
+ - [TourML](https://github.com/IMAmuseum/tourml)
