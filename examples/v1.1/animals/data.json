@@ -334,5 +334,6 @@
       "key": "pin-error",
       "value": "El código PIN introducido es incorrecto."
     }
-  ]
+  ],
+  "share": "https://smartcompanion-app.github.io/audioguide-app/animals/"
 }
