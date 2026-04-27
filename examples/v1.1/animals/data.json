@@ -1,0 +1,339 @@
+{
+  "checksum": "22445566",
+  "assets": [
+    {
+      "id": "i11",
+      "filename": "i11.png",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/i11.png"
+    },
+    {
+      "id": "i12",
+      "filename": "i12.png",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/i12.png"
+    },
+    {
+      "id": "i21",
+      "filename": "i21.png",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/i21.png"
+    },
+    {
+      "id": "i22",
+      "filename": "i22.png",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/i22.png"
+    },
+    {
+      "id": "i31",
+      "filename": "i31.png",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/i31.png"
+    },
+    {
+      "id": "i32",
+      "filename": "i32.png",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/i32.png"
+    },
+    {
+      "id": "a1de",
+      "filename": "a1de.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a1de.mp3",
+      "language": "de"
+    },
+    {
+      "id": "a2de",
+      "filename": "a2de.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a2de.mp3",
+      "language": "de"
+    },
+    {
+      "id": "a3de",
+      "filename": "a3de.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a3de.mp3",
+      "language": "de"
+    },
+    {
+      "id": "a1en",
+      "filename": "a1en.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a1en.mp3",
+      "language": "en"
+    },
+    {
+      "id": "a2en",
+      "filename": "a2en.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a2en.mp3",
+      "language": "en"
+    },
+    {
+      "id": "a3en",
+      "filename": "a3en.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a3en.mp3",
+      "language": "en"
+    },
+    {
+      "id": "a1es",
+      "filename": "a1es.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a1es.mp3",
+      "language": "es"
+    },
+    {
+      "id": "a2es",
+      "filename": "a2es.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a2es.mp3",
+      "language": "es"
+    },
+    {
+      "id": "a3es",
+      "filename": "a3es.mp3",
+      "externalUrl": "https://smartcompanion-app.github.io/data-format/animals/assets/a3es.mp3",
+      "language": "es"
+    }
+  ],
+  "stations": [
+    {
+      "id": "s1",
+      "language": "de",
+      "number": "1",
+      "title": "Bär",
+      "subtitle": "",
+      "audios": [
+        "a1de"
+      ],
+      "images": [
+        "i11",
+        "i12"
+      ]
+    },
+    {
+      "id": "s2",
+      "language": "de",
+      "number": "2",
+      "title": "Elefant",
+      "subtitle": "",
+      "audios": [
+        "a2de"
+      ],
+      "images": [
+        "i21",
+        "i22"
+      ]
+    },
+    {
+      "id": "s3",
+      "language": "de",
+      "number": "3",
+      "title": "Löwe",
+      "subtitle": "",
+      "audios": [
+        "a3de"
+      ],
+      "images": [
+        "i31",
+        "i32"
+      ]
+    },
+    {
+      "id": "s1",
+      "language": "en",
+      "number": "1",
+      "title": "Bear",
+      "subtitle": "",
+      "audios": [
+        "a1en"
+      ],
+      "images": [
+        "i11",
+        "i12"
+      ]
+    },
+    {
+      "id": "s2",
+      "language": "en",
+      "number": "2",
+      "title": "Elephant",
+      "subtitle": "",
+      "audios": [
+        "a2en"
+      ],
+      "images": [
+        "i21",
+        "i22"
+      ]
+    },
+    {
+      "id": "s3",
+      "language": "en",
+      "number": "3",
+      "title": "Lion",
+      "subtitle": "",
+      "audios": [
+        "a3en"
+      ],
+      "images": [
+        "i31",
+        "i32"
+      ]
+    },
+    {
+      "id": "s1",
+      "language": "es",
+      "number": "1",
+      "title": "El Oso",
+      "subtitle": "",
+      "audios": [
+        "a1es"
+      ],
+      "images": [
+        "i11",
+        "i12"
+      ]
+    },
+    {
+      "id": "s2",
+      "language": "es",
+      "number": "2",
+      "title": "El Elefante",
+      "subtitle": "",
+      "audios": [
+        "a2es"
+      ],
+      "images": [
+        "i21",
+        "i22"
+      ]
+    },
+    {
+      "id": "s3",
+      "language": "es",
+      "number": "3",
+      "title": "El León",
+      "subtitle": "",
+      "audios": [
+        "a3es"
+      ],
+      "images": [
+        "i31",
+        "i32"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "title": "Deutsch",
+      "language": "de"
+    },
+    {
+      "title": "English",
+      "language": "en"
+    },
+    {
+      "title": "Espa\u00f1ol",
+      "language": "es"
+    }
+  ],
+  "texts": [
+    {
+      "language": "de",
+      "key": "menu-overview",
+      "value": "Übersicht"
+    },
+    {
+      "language": "en",
+      "key": "menu-overview",
+      "value": "Overview"
+    },
+    {
+      "language": "es",
+      "key": "menu-overview",
+      "value": "Resumen"
+    },
+    {
+      "language": "de",
+      "key": "menu-selection",
+      "value": "Auswahl"
+    },
+    {
+      "language": "en",
+      "key": "menu-selection",
+      "value": "Selection"
+    },
+    {
+      "language": "es",
+      "key": "menu-selection",
+      "value": "Selección"
+    },
+    {
+      "language": "de",
+      "key": "menu-language",
+      "value": "Sprache \u00e4ndern"
+    },
+    {
+      "language": "en",
+      "key": "menu-language",
+      "value": "Change language"
+    },
+    {
+      "language": "es",
+      "key": "menu-language",
+      "value": "Cambiar idioma"
+    },
+    {
+      "language": "de",
+      "key": "no-internet",
+      "value": "Keine Internetverbindung"
+    },
+    {
+      "language": "en",
+      "key": "no-internet",
+      "value": "No Internet Connection"
+    },
+    {
+      "language": "es",
+      "key": "no-internet",
+      "value": "Sin conexión a Internet"
+    },
+    {
+      "language": "de",
+      "key": "try-again",
+      "value": "Wiederholen"
+    },
+    {
+      "language": "en",
+      "key": "try-again",
+      "value": "Try again"
+    },
+    {
+      "language": "es",
+      "key": "try-again",
+      "value": "Vuelve a intentarlo"
+    },
+    {
+      "language": "de",
+      "key": "enter-pin",
+      "value": "Bitte geben Sie den PIN-Code ein, den Sie im Ticketshop erhalten haben."
+    },
+    {
+      "language": "en",
+      "key": "enter-pin",
+      "value": "Please enter the PIN code you received at the ticket store."
+    },
+    {
+      "language": "es",
+      "key": "enter-pin",
+      "value": "Introduce el código PIN que recibiste en la tienda de entradas."
+    },
+    {
+      "language": "de",
+      "key": "pin-error",
+      "value": "Der eingegebene PIN-Code ist falsch."
+    },
+    {
+      "language": "en",
+      "key": "pin-error",
+      "value": "The entered PIN code is incorrect."
+    },
+    {
+      "language": "es",
+      "key": "pin-error",
+      "value": "El código PIN introducido es incorrecto."
+    }
+  ],
+  "share": "https://smartcompanion-app.github.io/audioguide-app/animals/"
+}

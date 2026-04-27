@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://smartcompanion-app.github.io/data-format/data.schema.json",
-  "title": "SmartCompanion Audioguide Data",
-  "description": "Schema for the data.json file used by the SmartCompanion Audioguide App. This file defines all content for an audioguide: assets (images and audio files), stations (points of interest), languages (available translations), texts (UI translations), and optionally tours, pins, and server configuration.",
+  "$id": "https://smartcompanion-app.github.io/data-format/v1.0/schema.json",
+  "title": "SmartCompanion data exchange format v1.0",
+  "description": "Schema for the json file for data exchange used by SmartCompanion apps. This file defines all content for an audioguide: assets (images and audio files), stations (points of interest), languages (available translations), texts (UI translations), and optionally tours, pins, and server configuration.",
   "type": "object",
   "required": ["checksum", "assets", "stations", "languages", "texts"],
   "properties": {
