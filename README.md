@@ -15,10 +15,12 @@ The schema is versioned with a `major.minor` version. The minor version is incre
 
 ## Examples
 
-There are examples provided for the latest available JSON schema version:
+There are examples provided for the respective JSON schema versions:
 
- - [AI-generated multilanguage tour of animal stations](https://smartcompanion-app.github.io/data-format/animals/data.json)
- - [German language audiotour through the town "Bruck an der Großglocknerstraße"](https://smartcompanion-app.github.io/data-format/leon/data.json) © by Leon Schwaiger
+| Example | v1.0 | v1.1 |
+| --- | --- | --- |
+| AI-generated multilanguage tour of animal stations | [v1.0](https://smartcompanion-app.github.io/data-format/v1.0/animals/data.json) | [v1.1](https://smartcompanion-app.github.io/data-format/v1.1/animals/data.json) |
+| German language audiotour through the town "Bruck an der Großglocknerstraße" © by Leon Schwaiger | [v1.0](https://smartcompanion-app.github.io/data-format/v1.0/leon/data.json) | [v1.1](https://smartcompanion-app.github.io/data-format/v1.1/leon/data.json) |
 
 ## Specification
 

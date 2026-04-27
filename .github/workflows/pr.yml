@@ -1,0 +1,17 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install check-jsonschema
+
+      - name: Validate examples
+        run: check-jsonschema --schemafile schema/v1.1/schema.json examples/v1.1/*/data.json

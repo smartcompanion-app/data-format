@@ -2,7 +2,6 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-  pull_request:
     branches: [main]
 
 permissions:
@@ -10,20 +9,7 @@ permissions:
   id-token: write
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: pip install check-jsonschema
-
-      - name: Validate examples
-        run: check-jsonschema --schemafile schema/v1.1/schema.json examples/v1.1/*/data.json
-
   deploy:
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: validate
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -34,17 +20,20 @@ jobs:
       - name: Install dependencies
         run: pip install json-schema-for-humans
 
-      - name: Build schema documentation for latest schema.json
+      - name: Build schema documentation and provide examples for all schema versions
         run: |
           mkdir build
           mkdir build/v1.0
           mkdir build/v1.1
           cp schema/v1.0/schema.json build/v1.0/
-          cp schema/v1.1/schema.json build/v1.1/          
+          cp schema/v1.1/schema.json build/v1.1/
           cp schema/v1.1/schema.json build/
+          cp -r examples/v1.0/*/ build/v1.0/
+          cp -r examples/v1.1/*/ build/v1.1/
           cp -r examples/v1.1/*/ build/
+          generate-schema-doc schema/v1.0/schema.json build/v1.0/index.html
+          generate-schema-doc schema/v1.1/schema.json build/v1.1/index.html
           generate-schema-doc schema/v1.1/schema.json build/index.html
-
 
       - uses: actions/upload-pages-artifact@v3
         with:
