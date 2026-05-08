@@ -36,6 +36,11 @@
       "language": "de",
       "key": "pin-error",
       "value": "Der eingegebene PIN-Code ist falsch."
+    },
+    {
+      "language": "de",
+      "key": "menu-share-app",
+      "value": "Audioguide empfehlen"
     }    
   ],
   "stations": [
