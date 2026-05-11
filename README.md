@@ -30,3 +30,4 @@ A human-readable documentation of the latest version of the JSON Schema can be f
 
  - [XMLGuide](https://dl.acm.org/doi/abs/10.1145/1967486.1967549)
  - [TourML](https://github.com/IMAmuseum/tourml)
+ - [TourJSON](https://github.com/TourJSON/tourJSON-specification)
